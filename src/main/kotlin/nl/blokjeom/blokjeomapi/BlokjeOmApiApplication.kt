@@ -1,4 +1,4 @@
-package nl.blokje_om.blokje_om_api
+package nl.blokjeom.blokjeomapi
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

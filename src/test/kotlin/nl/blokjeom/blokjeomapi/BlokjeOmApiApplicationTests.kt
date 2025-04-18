@@ -1,4 +1,4 @@
-package nl.blokje_om.blokje_om_api
+package nl.blokjeom.blokjeomapi
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
