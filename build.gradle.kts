@@ -19,8 +19,11 @@ repositories {
 }
 
 dependencies {
-	implementation(libs.springBootStarter)
 	implementation(libs.kotlinReflect)
+	implementation(libs.springBootStarter)
+	implementation(libs.springBootStarterWeb)
+	implementation(libs.kotlinLogging)
+
 	testImplementation(libs.springBootStarterTest)
 	testImplementation(libs.kotlinTestJunit5)
 	testRuntimeOnly(libs.junitPlatformLauncher)
