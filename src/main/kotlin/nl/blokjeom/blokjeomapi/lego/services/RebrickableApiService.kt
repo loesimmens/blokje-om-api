@@ -2,7 +2,7 @@ package nl.blokjeom.blokjeomapi.lego.services
 
 import io.github.oshai.kotlinlogging.KotlinLogging
 import nl.blokjeom.blokjeomapi.lego.config.LegoConfigurationProperties
-import nl.blokjeom.blokjeomapi.lego.dto.LegoSet
+import nl.blokjeom.blokjeomapi.lego.dto.RBLegoSet
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpMethod
@@ -17,19 +17,21 @@ class RebrickableApiService(
     private val restTemplate = RestTemplate()
     private val logger = KotlinLogging.logger {}
 
-    fun getAllSets(): List<LegoSet> {
+    fun getAllSets(): List<RBLegoSet> {
         val setIds = legoConfigurationProperties.setIds.ifEmpty { return emptyList() }
-        return setIds.mapNotNull { getOneSet(it) }
+        val sets = setIds.mapNotNull { getOneSet(it) }
+        return sets
     }
 
-    fun getOneSet(setId: String): LegoSet? {
+    fun getOneSet(setId: String): RBLegoSet? {
+        logger.debug { "Getting lego set $setId" }
         val key = legoConfigurationProperties.rebrickableApi.key
         val headers = HttpHeaders().apply { set(HttpHeaders.AUTHORIZATION, "key $key") }
-        val request = HttpEntity<LegoSet>(headers)
+        val request = HttpEntity<RBLegoSet>(headers)
         val url = "${legoConfigurationProperties.rebrickableApi.url}/$setId"
 
         try {
-            val response = restTemplate.exchange(url, HttpMethod.GET, request, LegoSet::class.java)
+            val response = restTemplate.exchange(url, HttpMethod.GET, request, RBLegoSet::class.java)
             if(response.body == null) {
                 logger.warn { "Response body for set $setId is null" }
             }

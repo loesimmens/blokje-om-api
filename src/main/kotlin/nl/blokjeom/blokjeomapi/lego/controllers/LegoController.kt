@@ -1,7 +1,7 @@
 package nl.blokjeom.blokjeomapi.lego.controllers
 
 import io.github.oshai.kotlinlogging.KotlinLogging
-import nl.blokjeom.blokjeomapi.lego.dto.LegoSet
+import nl.blokjeom.blokjeomapi.lego.dto.RBLegoSet
 import nl.blokjeom.blokjeomapi.lego.services.LegoService
 import nl.blokjeom.blokjeomapi.lego.services.RebrickableApiService
 import org.springframework.web.bind.annotation.GetMapping
@@ -18,7 +18,8 @@ class LegoController(
     private val logger = KotlinLogging.logger { }
 
     @GetMapping
-    fun getAllSets(): List<LegoSet> {
+    fun getAllSets(): List<RBLegoSet> {
+        logger.debug { "Getting all lego sets" }
         try {
             return rebrickableApiService.getAllSets()
         } catch (e: RestClientException) {

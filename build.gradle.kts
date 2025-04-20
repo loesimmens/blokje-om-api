@@ -20,9 +20,12 @@ repositories {
 
 dependencies {
 	implementation(libs.kotlinReflect)
-	implementation(libs.springBootStarter)
-	implementation(libs.springBootStarterWeb)
 	implementation(libs.kotlinLogging)
+	implementation(libs.springBootStarter)
+	implementation(libs.springBootStarterDataJpa)
+	implementation(libs.springBootStarterWeb)
+	implementation(libs.flyway)
+	implementation(libs.h2)
 
 	testImplementation(libs.springBootStarterTest)
 	testImplementation(libs.kotlinTestJunit5)

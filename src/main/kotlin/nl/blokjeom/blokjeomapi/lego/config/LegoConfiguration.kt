@@ -11,5 +11,5 @@ class LegoConfiguration
 @ConfigurationProperties("lego")
 class LegoConfigurationProperties(
     val rebrickableApi: RebrickableApiConfigurationProperties,
-    val setIds: List<String> = emptyList(),
+    val setIds: List<String>,
 )
