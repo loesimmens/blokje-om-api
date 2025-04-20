@@ -1,6 +1,12 @@
+spring.datasource:
+  url: jdbc:postgresql://localhost:5432/blokje_om_api
+  username: postgres
+  password: 1234
+
 lego:
   rebrickable-api:
     key: '23e0c0d68b3e7f3024665532b8b3a76c'
+
 logging:
   level:
     nl:

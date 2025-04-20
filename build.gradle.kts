@@ -3,6 +3,7 @@ plugins {
 	alias(libs.plugins.spring)
 	alias(libs.plugins.springBoot)
 	alias(libs.plugins.springDependencyManagement)
+	alias(libs.plugins.jpa)
 }
 
 group = "nl.blokje-om"
@@ -24,6 +25,7 @@ dependencies {
 	implementation(libs.springBootStarter)
 	implementation(libs.springBootStarterDataJpa)
 	implementation(libs.springBootStarterWeb)
+	implementation(libs.postgresql)
 	implementation(libs.flyway)
 	implementation(libs.h2)
 

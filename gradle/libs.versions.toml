@@ -41,6 +41,7 @@ junitPlatformLauncher = { group = "org.junit.platform", name = "junit-platform-l
 gradleWrapperUpgrade = { id = "org.gradle.wrapper-upgrade", version.ref = "gradleWrapperUpgrade" }
 jacoco = { id = "jacoco" }
 jacocoReportAggregation = { id = "jacoco-report-aggregation" }
+jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
 kotlinJpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 sonarqube = { id = "org.sonarqube", version.ref = "sonarqube" }
