@@ -7,7 +7,7 @@ import java.time.Instant
 
 @Entity
 data class LegoSet(
-    @Id val setId: String,
+    @Id val id: String,
     val name: String,
     val year: Int,
     val theme: LegoTheme,
@@ -15,7 +15,7 @@ data class LegoSet(
     val imageUrl: String,
     val creationTime: Instant,
     val modificationTime: Instant,
-    val rentalPricePerWeek: Double,
-    val buildTogether: Boolean,
-    val available: Boolean,
+    val rentalPricePerWeek: Double? = null,
+    val buildTogether: Boolean? = null,
+    val available: Boolean? = null,
 )

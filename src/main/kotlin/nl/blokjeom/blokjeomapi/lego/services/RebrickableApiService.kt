@@ -17,11 +17,8 @@ class RebrickableApiService(
     private val restTemplate = RestTemplate()
     private val logger = KotlinLogging.logger {}
 
-    fun getAllSets(): List<RBLegoSet> {
-        val setIds = legoConfigurationProperties.setIds.ifEmpty { return emptyList() }
-        val sets = setIds.mapNotNull { getOneSet(it) }
-        return sets
-    }
+    fun getSetsWithIds(setIds: List<String>) =
+        setIds.mapNotNull { getOneSet(it) }
 
     fun getOneSet(setId: String): RBLegoSet? {
         logger.debug { "Getting lego set $setId" }

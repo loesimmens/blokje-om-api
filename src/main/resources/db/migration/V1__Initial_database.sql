@@ -1,5 +1,5 @@
 create table lego_set (
-   set_id varchar(8) not null,
+   id varchar(8) not null,
    name varchar(255) not null,
    year int,
    theme varchar(255) not null,
@@ -11,5 +11,5 @@ create table lego_set (
    build_together boolean,
    available boolean,
 
-   primary key (set_id)
+   primary key (id)
 );
