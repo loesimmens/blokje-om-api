@@ -15,7 +15,7 @@ data class LegoSet(
     val imageUrl: String,
     val creationTime: Instant,
     val modificationTime: Instant,
-    val rentalPricePerWeek: Double? = null,
+    val rentalPricePerWeek: Int? = null,
     val buildTogether: Boolean? = null,
     val available: Boolean? = null,
 )

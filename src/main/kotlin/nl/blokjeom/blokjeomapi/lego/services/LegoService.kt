@@ -19,13 +19,13 @@ class LegoService(
 
     fun getAllSets(): List<LegoSet> {
         logger.debug { "Getting all lego sets" }
-        val setIds = legoConfigurationProperties.setIds.ifEmpty { return emptyList() }
-        val savedSets = legoSetRepository.findAllById(setIds)
+        val ids = legoConfigurationProperties.setInfo.keys.toList().ifEmpty { return emptyList() }
+        val savedSets = legoSetRepository.findAllById(ids)
 
-        if(getIdsOutOfDate(setIds, savedSets).isNotEmpty()) {
-            logger.info { "Getting lego sets from Rebrickable API: $setIds"}
-            val rebrickableLegoSets = rebrickableApiService.getSetsWithIds(setIds)
-            val legoSets = rebrickableLegoSets.map { it.toLegoSet() }
+        if(getIdsOutOfDate(ids, savedSets).isNotEmpty()) {
+            logger.info { "Getting lego sets from Rebrickable API: $ids"}
+            val rebrickableLegoSets = rebrickableApiService.getSetsWithIds(ids)
+            val legoSets = rebrickableLegoSets.map { it.toLegoSet(legoConfigurationProperties.setInfo) }
             logger.info { "Saving lego sets from API to database"}
             return legoSetRepository.saveAll(legoSets)
         }

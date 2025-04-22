@@ -5,7 +5,7 @@ import nl.blokjeom.blokjeomapi.lego.domain.entities.LegoSet
 import nl.blokjeom.blokjeomapi.lego.dto.RBLegoSet
 import java.time.Instant
 
-fun RBLegoSet.toLegoSet() =
+fun RBLegoSet.toLegoSet(setInfo: Map<String, Int>) =
     LegoSet(
         id = this.set_num,
         name = this.name,
@@ -14,6 +14,7 @@ fun RBLegoSet.toLegoSet() =
         numberOfParts = this.num_parts,
         creationTime = Instant.now(),
         modificationTime = Instant.now(),
-        imageUrl = this.set_img_url
+        imageUrl = this.set_img_url,
+        rentalPricePerWeek = setInfo[this.set_num] // todo exception
     )
 
