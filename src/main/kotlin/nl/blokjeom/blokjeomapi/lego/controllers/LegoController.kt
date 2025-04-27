@@ -5,6 +5,7 @@ import nl.blokjeom.blokjeomapi.lego.domain.entities.LegoSet
 import nl.blokjeom.blokjeomapi.lego.services.LegoService
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.client.RestClientException
@@ -18,11 +19,21 @@ class LegoController(
     private val logger = KotlinLogging.logger { }
 
     @GetMapping
-    fun getAllSets(): List<LegoSet> {
+    fun getAllLegoSets(): List<LegoSet> {
         try {
             return legoService.getAllSets()
         } catch (e: RestClientException) {
             logger.error(e) { "Error getting lego sets: ${e.message}" }
+            throw e
+        }
+    }
+
+    @GetMapping("/{id}")
+    fun getLegoSet(@PathVariable id: String): LegoSet {
+        try {
+            return legoService.getLegoSet(id).orElseThrow()
+        } catch (e: Exception) {
+            logger.error(e) { "Error getting lego set: $id" }
             throw e
         }
     }

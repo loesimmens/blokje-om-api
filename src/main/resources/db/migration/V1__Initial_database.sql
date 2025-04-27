@@ -10,6 +10,7 @@ create table lego_set (
    rental_price_per_week real,
    build_together boolean,
    available boolean,
+   description varchar(8000),
 
    primary key (id)
 );

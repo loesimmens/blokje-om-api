@@ -49,4 +49,8 @@ class LegoService(
         savedSets: List<LegoSet>,
         it: String
     ) = savedSets.map { savedSet -> savedSet.id }.contains(it)
+
+    fun getLegoSet(id: String) =
+        legoSetRepository.findById(id)
+
 }

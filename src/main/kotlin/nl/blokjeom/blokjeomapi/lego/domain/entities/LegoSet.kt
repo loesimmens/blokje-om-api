@@ -18,4 +18,5 @@ data class LegoSet(
     val rentalPricePerWeek: Int? = null,
     val buildTogether: Boolean? = null,
     val available: Boolean? = null,
+    val description: String? = null,
 )
