@@ -1,0 +1,28 @@
+package nl.blokjeom.blokjeomapi.boardgames.services
+
+import io.github.oshai.kotlinlogging.KotlinLogging
+import nl.blokjeom.blokjeomapi.boardgames.config.BoardGameConfigurationProperties
+import nl.blokjeom.blokjeomapi.boardgames.domain.entities.BoardGame
+import nl.blokjeom.blokjeomapi.boardgames.repositories.BoardGameRepository
+import nl.blokjeom.blokjeomapi.lego.config.LegoConfigurationProperties
+import org.springframework.stereotype.Service
+
+@Service
+class BoardGameService(
+    private val boardGameConfigurationProperties: BoardGameConfigurationProperties,
+    private val boardGameGeekApiService: BoardGameGeekApiService,
+    private val boardGameRepository: BoardGameRepository,
+) {
+    val logger = KotlinLogging.logger { }
+
+    fun getAllGames(): List<BoardGame> {
+        logger.debug { "Getting all board games"}
+        val ids = boardGameConfigurationProperties.gameInfo.keys.toList().ifEmpty { return emptyList() }
+        return emptyList()
+    }
+
+    fun getOneGame(id : String) {
+        logger.debug { "Getting game with id: $id "}
+        boardGameGeekApiService.getOneGame(id)
+    }
+}

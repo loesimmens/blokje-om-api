@@ -24,3 +24,9 @@ lego:
 
   rebrickable-api:
     url: https://rebrickable.com/api/v3/lego/sets
+
+boardgames:
+  board-game-geek-api:
+    url: https://boardgamegeek.com/xmlapi/boardgame
+  game-info:
+    "18803": 1000
