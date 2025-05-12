@@ -1,10 +1,10 @@
 package nl.blokjeom.blokjeomapi.boardgames.services
 
+import com.boardgamegeek.xmlapi.boardgames.Boardgame
 import io.github.oshai.kotlinlogging.KotlinLogging
 import nl.blokjeom.blokjeomapi.boardgames.config.BoardGameConfigurationProperties
 import nl.blokjeom.blokjeomapi.boardgames.domain.entities.BoardGame
 import nl.blokjeom.blokjeomapi.boardgames.repositories.BoardGameRepository
-import nl.blokjeom.blokjeomapi.lego.config.LegoConfigurationProperties
 import org.springframework.stereotype.Service
 
 @Service
@@ -21,8 +21,8 @@ class BoardGameService(
         return emptyList()
     }
 
-    fun getOneGame(id : String) {
+    fun getOneGame(id : String): Boardgame {
         logger.debug { "Getting game with id: $id "}
-        boardGameGeekApiService.getOneGame(id)
+        return boardGameGeekApiService.getOneGame(id)
     }
 }

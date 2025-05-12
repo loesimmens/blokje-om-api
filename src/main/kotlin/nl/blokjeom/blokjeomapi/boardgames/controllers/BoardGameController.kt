@@ -1,5 +1,6 @@
 package nl.blokjeom.blokjeomapi.boardgames.controllers
 
+import com.boardgamegeek.xmlapi.boardgames.Boardgame
 import io.github.oshai.kotlinlogging.KotlinLogging
 import nl.blokjeom.blokjeomapi.boardgames.domain.entities.BoardGame
 import nl.blokjeom.blokjeomapi.boardgames.services.BoardGameService
@@ -29,10 +30,10 @@ class BoardGameController (
     }
 
     @GetMapping("/{id}")
-    fun getOneBoardGame(@PathVariable id : String) {
+    fun getOneBoardGame(@PathVariable id : String): Boardgame {
         try {
             logger.debug { "Getting board game with id $id" }
-            boardGameService.getOneGame(id)
+            return boardGameService.getOneGame(id)
         } catch (e: RestClientException) {
             logger.error(e) { "Error getting board game with id: $id. ${e.message}" }
             throw e
