@@ -51,7 +51,7 @@ xsd2java {
 	schemas {
 		create("boardgames") {
 			schemaDirPath = file("src/main/resources/xsd").toPath()
-			packageName = "com.boardgamegeek.xmlapi.boardgames"
+			packageName = "com.boardgamegeek.xmlapi.boardgames.old"
 		}
 	}
 
