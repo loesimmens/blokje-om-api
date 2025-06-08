@@ -1,8 +1,5 @@
 package com.boardgamegeek.xmlapi.boardgames
 
-import com.boardgamegeek.xmlapi.boardgames.old.Boardgame.Poll
-import com.boardgamegeek.xmlapi.boardgames.old.Name
-
 data class Boardgame(
     val yearpublished: String,
     val minplayers: Int,

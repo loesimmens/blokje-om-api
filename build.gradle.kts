@@ -4,7 +4,6 @@ plugins {
 	alias(libs.plugins.springBoot)
 	alias(libs.plugins.springDependencyManagement)
 	alias(libs.plugins.jpa)
-	alias(libs.plugins.xsd2java)
 }
 
 group = "nl.blokje-om"
@@ -45,16 +44,4 @@ kotlin {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
-}
-
-xsd2java {
-	schemas {
-		create("boardgames") {
-			schemaDirPath = file("src/main/resources/xsd").toPath()
-			packageName = "com.boardgamegeek.xmlapi.boardgames.old"
-		}
-	}
-
-	arguments = listOf("-verbose")
-	outputDir = file("${project.layout.buildDirectory.get()}/generated-sources/xsd2java")
 }
