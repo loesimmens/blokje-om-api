@@ -2,7 +2,6 @@
 flyway = "11.8.2"
 gradleWrapperUpgrade = "0.12"
 jackson = "2.18.3"
-junit = "5.11.4"
 junitPlatform = "1.11.4"
 kotlin = "2.1.0"
 kotlinLogging = "7.0.3"
@@ -10,13 +9,13 @@ mockk = "1.13.14"
 postgresql = "42.7.5"
 sonarqube = "6.0.1.5171"
 spotless = "7.0.2"
-spring = "4.0.12"
 springBoot = "3.4.5"
 springDependencyManagement = "1.1.7"
 testcontainers = "1.20.5"
 xsd2java = "4.0.1"
 
 [libraries]
+assertJ = { group = "org.assertj", name = "assertj-core" }
 flyway = { group = "org.flywaydb", name = "flyway-database-postgresql", version.ref = "flyway" }
 h2 = { group = "com.h2database", name = "h2" }
 jacksonDataFormatXML = { group = "com.fasterxml.jackson.dataformat", name = "jackson-dataformat-xml", version.ref = "jackson" }

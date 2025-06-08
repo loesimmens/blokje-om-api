@@ -33,7 +33,8 @@ class BoardGameController (
     fun getOneBoardGame(@PathVariable id : String): Boardgame {
         try {
             logger.debug { "Getting board game with id $id" }
-            return boardGameService.getOneGame(id)
+            val  game = boardGameService.getOneGame(id)
+            return game
         } catch (e: RestClientException) {
             logger.error(e) { "Error getting board game with id: $id. ${e.message}" }
             throw e

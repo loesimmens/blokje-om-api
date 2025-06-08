@@ -23,6 +23,7 @@ class BoardGameService(
 
     fun getOneGame(id : String): Boardgame {
         logger.debug { "Getting game with id: $id "}
-        return boardGameGeekApiService.getOneGame(id)
+        val game = boardGameGeekApiService.getOneGame(id)
+        return game
     }
 }

@@ -1,6 +1,9 @@
 package com.boardgamegeek.xmlapi.boardgames
 
-data class Boardgame (
+import com.boardgamegeek.xmlapi.boardgames.old.Boardgame.Poll
+import com.boardgamegeek.xmlapi.boardgames.old.Name
+
+data class Boardgame(
     val yearpublished: String,
     val minplayers: Int,
     val maxplayers: Int,
@@ -9,14 +12,36 @@ data class Boardgame (
     val maxplaytime: Int,
     val age: Int,
     val name: Name,
-    val description: Description,
+    val description: String,
     val thumbnail: String,
     val image: String,
-    val boardgamepublisher: MutableList<Boardgamepublisher> = mutableListOf(),
-    val boardgamefamily: Boardgamefamily,
-    val boardgamecategory: MutableList<Boardgamecategory> = mutableListOf(),
-    val boardgamedesigner: Boardgamedesigner,
-    val boardgameartist: Boardgameartist,
-    val boardgameexpansion: Boardgameexpansion,
+    val boardgame: MutableList<Link> = mutableListOf(),
+    val boardgameaccessory: MutableList<Link> = mutableListOf(),
+    val boardgameartist: MutableList<Link> = mutableListOf(),
+    val boardgamecategory: MutableList<Link> = mutableListOf(),
+    val boardgamecompilation: MutableList<Link> = mutableListOf(),
+    val boardgamedesigner: MutableList<Link> = mutableListOf(),
+    val boardgamedeveloper: MutableList<Link> = mutableListOf(),
+    val boardgameeditor: MutableList<Link> = mutableListOf(),
+    val boardgameexpansion: MutableList<Link> = mutableListOf(),
+    val boardgamefamily: MutableList<Link> = mutableListOf(),
+    val boardgamegraphicdesigner: MutableList<Link> = mutableListOf(),
+    val boardgamehonor: MutableList<Link> = mutableListOf(),
+    val boardgameimplementation: MutableList<Link> = mutableListOf(),
+    val boardgameinsertdesigner: MutableList<Link> = mutableListOf(),
+    val boardgameintegration: MutableList<Link> = mutableListOf(),
+    val boardgameissue: MutableList<Link> = mutableListOf(),
+    val boardgameissueversion: MutableList<Link> = mutableListOf(),
+    val boardgamemechanic: MutableList<Link> = mutableListOf(),
+    val boardgamepodcastepisode: MutableList<Link> = mutableListOf(),
+    val boardgamepublisher: MutableList<Link> = mutableListOf(),
+    val boardgamesculptor: MutableList<Link> = mutableListOf(),
+    val boardgamesolodesigner: MutableList<Link> = mutableListOf(),
+    val boardgamesubdomain: MutableList<Link> = mutableListOf(),
+    val boardgameversion: MutableList<Link> = mutableListOf(),
+    val boardgamewriter: MutableList<Link> = mutableListOf(),
+    val commerceweblink: MutableList<Link> = mutableListOf(),
+    val videogamebg: MutableList<Link> = mutableListOf(),
     val poll: Poll,
-    val objectid: Int = 0)
+    val objectid: Int = 0
+)
