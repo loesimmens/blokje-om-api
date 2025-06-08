@@ -2,7 +2,7 @@ package nl.blokjeom.blokjeomapi.boardgames.controllers
 
 import com.boardgamegeek.xmlapi.boardgames.Boardgame
 import io.github.oshai.kotlinlogging.KotlinLogging
-import nl.blokjeom.blokjeomapi.boardgames.domain.entities.BoardGame
+import nl.blokjeom.blokjeomapi.orders.domain.entities.BoardGame
 import nl.blokjeom.blokjeomapi.boardgames.services.BoardGameService
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping

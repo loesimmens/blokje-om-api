@@ -2,7 +2,7 @@ package nl.blokjeom.blokjeomapi.lego.services
 
 import io.github.oshai.kotlinlogging.KotlinLogging
 import nl.blokjeom.blokjeomapi.lego.config.LegoConfigurationProperties
-import nl.blokjeom.blokjeomapi.lego.domain.entities.LegoSet
+import nl.blokjeom.blokjeomapi.orders.domain.entities.LegoSet
 import nl.blokjeom.blokjeomapi.lego.mapping.toLegoSet
 import nl.blokjeom.blokjeomapi.lego.repositories.LegoSetRepository
 import org.springframework.stereotype.Service

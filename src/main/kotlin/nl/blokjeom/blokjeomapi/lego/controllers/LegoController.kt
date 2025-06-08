@@ -1,7 +1,7 @@
 package nl.blokjeom.blokjeomapi.lego.controllers
 
 import io.github.oshai.kotlinlogging.KotlinLogging
-import nl.blokjeom.blokjeomapi.lego.domain.entities.LegoSet
+import nl.blokjeom.blokjeomapi.orders.domain.entities.LegoSet
 import nl.blokjeom.blokjeomapi.lego.services.LegoService
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping

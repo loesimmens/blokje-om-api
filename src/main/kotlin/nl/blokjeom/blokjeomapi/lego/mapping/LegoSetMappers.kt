@@ -1,7 +1,7 @@
 package nl.blokjeom.blokjeomapi.lego.mapping
 
 import nl.blokjeom.blokjeomapi.lego.domain.LegoTheme
-import nl.blokjeom.blokjeomapi.lego.domain.entities.LegoSet
+import nl.blokjeom.blokjeomapi.orders.domain.entities.LegoSet
 import nl.blokjeom.blokjeomapi.lego.dto.RBLegoSet
 import java.time.Instant
 
