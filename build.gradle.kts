@@ -33,6 +33,7 @@ dependencies {
 
 	testImplementation(libs.springBootStarterTest)
 	testImplementation(libs.kotlinTestJunit5)
+	testImplementation(libs.mockk)
 	testRuntimeOnly(libs.junitPlatformLauncher)
 }
 

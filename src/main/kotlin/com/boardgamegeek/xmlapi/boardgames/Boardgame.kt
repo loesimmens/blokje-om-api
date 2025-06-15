@@ -1,7 +1,7 @@
 package com.boardgamegeek.xmlapi.boardgames
 
 data class Boardgame(
-    val yearpublished: String,
+    val yearpublished: Int,
     val minplayers: Int,
     val maxplayers: Int,
     val playingtime: Int,

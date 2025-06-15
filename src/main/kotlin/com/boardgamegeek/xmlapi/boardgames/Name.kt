@@ -1,9 +1,11 @@
 package com.boardgamegeek.xmlapi.boardgames
 
-import java.math.BigInteger
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlText
 
 data class Name(
-    val value: String? = null,
-    val isPrimary: Boolean = false,
-    val sortindex: BigInteger? = null
-)
+    @JacksonXmlProperty(isAttribute = true) val isPrimary: Boolean,
+    @JacksonXmlProperty(isAttribute = true) val sortindex: Int = 0,
+)  {
+    @JacksonXmlText lateinit var value: String private set
+}
