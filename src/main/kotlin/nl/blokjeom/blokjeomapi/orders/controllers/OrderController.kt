@@ -20,6 +20,7 @@ class OrderController(private val orderService: OrderService) {
     @PostMapping
     fun order(@RequestBody order: Order): ResponseEntity<Order> {
         try {
+            logger.info { "Received order: $order" }
             val savedOrder = orderService.order(order)
             return ResponseEntity.ok(savedOrder)
         } catch (e: RestClientException) {
