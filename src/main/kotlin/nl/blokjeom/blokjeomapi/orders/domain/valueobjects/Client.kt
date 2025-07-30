@@ -1,5 +1,8 @@
 package nl.blokjeom.blokjeomapi.orders.domain.valueobjects
 
+import jakarta.persistence.Embeddable
+
+@Embeddable
 data class Client(
     val firstName: String,
     val middleName: String? = null,

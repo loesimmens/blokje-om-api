@@ -12,7 +12,7 @@ import java.util.UUID
 import javax.annotation.processing.Generated
 
 @Entity
-data class Order(
+data class ProductOrder(
     @Id @Generated val id: UUID = UUID.randomUUID(),
     val productId: String,
     @Embedded

@@ -34,3 +34,22 @@ create table board_game (
 
     primary key (id)
 );
+
+create table product_order (
+    id uuid not null,
+    product_id varchar(8) not null,
+    client_first_name varchar(32) not null,
+    client_middle_name varchar(32),
+    client_last_name varchar(255) not null,
+    client_street varchar(255) not null,
+    client_number varchar(8) not null,
+    client_number_addition varchar(8),
+    client_postal_code varchar(8) not null,
+    client_town varchar(255) not null,
+    client_phone_number varchar(32) not null,
+    client_email_address varchar(255) not null,
+    pickup_time_start_time timestamp not null,
+    pickup_time_end_time timestamp not null,
+
+    primary key (id)
+);
