@@ -1,6 +1,7 @@
 package nl.blokjeom.blokjeomapi.products.services
 
 import nl.blokjeom.blokjeomapi.products.domain.Product
+import org.springframework.stereotype.Service
 import java.time.Duration
 import java.time.Instant
 
@@ -22,5 +23,4 @@ abstract class ProductService {
         savedProducts: List<Product>,
         it: String
     ) = savedProducts.map { savedProduct -> savedProduct.id }.contains(it)
-
 }

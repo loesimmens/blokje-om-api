@@ -12,7 +12,7 @@ class MailService(
     val logger = KotlinLogging.logger {}
 
     fun sendSimpleMessage(to: String, subject: String, text: String) {
-        logger.info { "Sending order confirmation to client: $to" }
+        logger.info { "Sending email to: $to" }
 
         val message = SimpleMailMessage()
         message.from = "noreply@blokje-om.nl"

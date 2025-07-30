@@ -8,6 +8,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.Id
 import nl.blokjeom.blokjeomapi.orders.domain.valueobjects.Client
 import nl.blokjeom.blokjeomapi.orders.domain.valueobjects.PickUpTime
+import nl.blokjeom.blokjeomapi.products.domain.ProductType
 import java.util.UUID
 import javax.annotation.processing.Generated
 
@@ -15,6 +16,7 @@ import javax.annotation.processing.Generated
 data class ProductOrder(
     @Id @Generated val id: UUID = UUID.randomUUID(),
     val productId: String,
+    val productType: ProductType,
     @Embedded
     @AttributeOverrides(
         value =

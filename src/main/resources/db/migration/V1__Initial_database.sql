@@ -1,5 +1,6 @@
 create table lego_set (
    id varchar(8) not null,
+   product_type varchar(32) not null,
    name varchar(255) not null,
    year int,
    theme varchar(255) not null,
@@ -17,6 +18,7 @@ create table lego_set (
 
 create table board_game (
     id varchar(8) not null,
+    product_type varchar(32) not null,
     name varchar(255) not null,
     year int,
     image_url varchar(255),
@@ -37,6 +39,7 @@ create table board_game (
 
 create table product_order (
     id uuid not null,
+    product_type varchar(32) not null,
     product_id varchar(8) not null,
     client_first_name varchar(32) not null,
     client_middle_name varchar(32),

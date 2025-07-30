@@ -1,3 +1,15 @@
+spring:
+  mail:
+    host: mail.antagonist.nl
+    port: 587
+    username: info@blokje-om.nl
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
 lego:
   set-info:
     "31058-1": 100
@@ -33,14 +45,5 @@ boardgames:
     "26054": 150
     "129465": 150
 
-spring:
-  mail:
-    host: mail.antagonist.nl
-    port: 587
-    username: info@blokje-om.nl
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
+mail:
+  blokje-om-email: info@blokje-om.nl

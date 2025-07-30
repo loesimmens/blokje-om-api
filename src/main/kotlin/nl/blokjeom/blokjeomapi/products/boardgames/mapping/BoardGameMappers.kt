@@ -2,11 +2,13 @@ package nl.blokjeom.blokjeomapi.products.boardgames.mapping
 
 import com.boardgamegeek.xmlapi.boardgames.Boardgame
 import nl.blokjeom.blokjeomapi.products.boardgames.domain.BoardGame
+import nl.blokjeom.blokjeomapi.products.domain.ProductType
 import java.time.Instant
 
 fun Boardgame.toBoardGame(setInfo: Map<String, Int>): BoardGame =
     BoardGame(
         id = objectid.toString(),
+        productType = ProductType.BOARD_GAME,
         name = name.value,
         year = yearpublished,
         age = age,
