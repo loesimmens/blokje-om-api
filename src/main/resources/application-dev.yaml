@@ -12,3 +12,4 @@ logging:
   level:
     nl:
       blokjeom: debug
+    org.springframework.mail: debug

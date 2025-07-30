@@ -25,6 +25,7 @@ dependencies {
 	implementation(libs.springBootStarter)
 	implementation(libs.springBootStarterDataJpa)
 	implementation(libs.springBootStarterWeb)
+	implementation(libs.springBootStarterMail)
 	implementation(libs.jacksonKotlinModule)
 	implementation(libs.jacksonDataFormatXML)
 	implementation(libs.postgresql)
