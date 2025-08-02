@@ -37,7 +37,7 @@ class OrderService(
         sendEmailToClient(productOrder)
         sendEmailToBlokjeOm(productOrder)
 
-//        setProductAsUnavailable(productOrder) todo put back
+        setProductAsUnavailable(productOrder)
 
         return orderRepository.save(productOrder)
     }
@@ -47,15 +47,35 @@ class OrderService(
             productOrder.client.emailAddress,
             "Bedankt voor je bestelling bij Blokje Om",
             mailConfigurationProperties.clientMailTemplateFileName,
-            clientMailTemplateModel(productOrder),
+            mailTemplateModel(productOrder, getClientNameFromOrder(productOrder)),
             mailConfigurationProperties.logoPath
         )
 
-    private fun clientMailTemplateModel(productOrder: ProductOrder): MutableMap<String, Any> {
+    private fun sendEmailToBlokjeOm(productOrder: ProductOrder) {
+        val clientName = getClientNameFromOrder(productOrder)
+        mailService.sendMessageUsingThymeleafTemplate(
+            mailConfigurationProperties.blokjeOmEmail,
+            "Besteld: product ${productOrder.productId}, door $clientName",
+            mailConfigurationProperties.blokjeOmMailTemplateFileName,
+            mailTemplateModel(productOrder, clientName),
+            mailConfigurationProperties.logoPath
+        )
+    }
+
+    private fun mailTemplateModel(productOrder: ProductOrder, clientName: String): MutableMap<String, Any> {
         val product = getProductFromOrder(productOrder)
+        val clientStreetLine = getStreetLine(productOrder.client.street, productOrder.client.number, productOrder.client.numberAddition)
+
         val mailTemplateModel = mutableMapOf<String, Any>()
-        mailTemplateModel.put("firstName", productOrder.client.firstName)
+        mailTemplateModel.put("clientFirstName", productOrder.client.firstName)
+        mailTemplateModel.put("clientName", clientName)
+        mailTemplateModel.put("clientStreetLine", clientStreetLine)
+        mailTemplateModel.put("clientPostalCode", productOrder.client.postalCode)
+        mailTemplateModel.put("clientTown", productOrder.client.town)
+        mailTemplateModel.put("clientEmailAddress", productOrder.client.emailAddress)
+        mailTemplateModel.put("clientPhoneNumber", productOrder.client.phoneNumber)
         mailTemplateModel.put("productName", product.name)
+        mailTemplateModel.put("productId", product.id)
         mailTemplateModel.put("startDate", formatInstant(productOrder.pickUpTime.startTime))
         mailTemplateModel.put("endDate", formatInstant(productOrder.pickUpTime.endTime))
         mailTemplateModel.put("price", product.rentalPricePerWeek / 100)
@@ -63,12 +83,22 @@ class OrderService(
         return mailTemplateModel
     }
 
-    private fun sendEmailToBlokjeOm(productOrder: ProductOrder) {
-        mailService.sendSimpleMessage(
-            mailConfigurationProperties.blokjeOmEmail,
-            "Besteld: product ${productOrder.productId}, door ${productOrder.client.firstName} ${productOrder.client.lastName}",
-            "Check of de betaling binnen is."
-        )
+    private fun getClientNameFromOrder(productOrder: ProductOrder): String {
+        val middleName = if (productOrder.client.middleName != null) {
+            productOrder.client.middleName + " "
+        } else {
+            ""
+        }
+        return "${productOrder.client.firstName} $middleName${productOrder.client.lastName}"
+    }
+
+    private fun getStreetLine(street: String, number: String, numberAddition: String?): String {
+        val numberAddition = if (numberAddition != null) {
+            " $numberAddition"
+        } else {
+            ""
+        }
+        return "$street $number$numberAddition"
     }
 
     fun setProductAsUnavailable(productOrder: ProductOrder) {

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="nl-NL">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Reservering binnen</title>
+</head>
+<body>
+<p>
+  Ha die Lieke en Loes,
+</p>
+<p>
+  Er is een reservering binnen gekomen!
+</p>
+<p>
+  Stuur een betaallink naar <a th:href="'mailto:' + ${clientEmailAddress}" th:text="${clientEmailAddress}"></a>, zodat de bestelling kan worden voltooid.
+</p>
+<p>
+  <b>Klant</b><br>
+  <span th:text="${clientName}" /><br>
+  <span th:text="${clientStreetLine}" /><br>
+  <span th:text="${clientPostalCode} + ' ' + ${clientTown}"></span><br>
+  <span th:text="${clientPhoneNumber}"></span><br>
+  <a th:href="'mailto:' + ${clientEmailAddress}" th:text="${clientEmailAddress}"></a>
+</p>
+<p>
+  <b>Product</b><br>
+  <span th:text="${productName} + ' (id: ' + ${productId} + ')'"></span><br>
+</p>
+<p>
+  <b>Ophaalmoment</b><br>
+  <span th:text="${startDate}"></span>
+</p>
+<p>
+  <b>Terugbrengmoment</b><br>
+  <span th:text="${endDate}"></span>
+</p>
+<p>
+  <b>Bedrag</b><br>
+  &euro;<span th:text="${price}"></span> per week
+</p>
+<p>
+  <img th:src="${productImage}" width="150px" />
+</p>
+</body>
+</html>

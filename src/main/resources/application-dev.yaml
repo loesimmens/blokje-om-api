@@ -11,6 +11,7 @@ lego:
 mail:
   templates-folder: mail-templates/
   client-mail-template-file-name: client-email
+  blokje-om-mail-template-file-name: blokje-om-email
   logo-path: classpath:mail-templates/logo.png
 
 logging:

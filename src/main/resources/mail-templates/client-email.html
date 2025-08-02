@@ -5,8 +5,12 @@
   <title>Bedankt voor je bestelling bij Blokje Om</title>
 </head>
 <body>
-<p>Beste <span th:text="${firstName}" />,</p>
-<p>Hartelijk dank voor je reservering!</p>
+<p>
+  Beste <span th:text="${clientFirstName}" />,
+</p>
+<p>
+  Hartelijk dank voor je reservering!
+</p>
 <p>
   Deze is pas definitief wanneer wij je een bevestiging met een betaallink gestuurd hebben
   en deze betaling voldaan is. We komen zo snel mogelijk bij je terug.
@@ -17,14 +21,20 @@
   Terugbrengmoment: <span th:text="${endDate}"></span><br>
   Bedrag: &euro;<span th:text="${price}"></span> per week
 </p>
-<img th:src="${productImage}" width="150px" />
+<p>
+  <img th:src="${productImage}" width="150px" />
+</p>
 <p>
   Heb je eerder al een vraag? Mail gerust naar
   <a href="mailto:info@blokje-om.nl">info@blokje-om.nl</a>.
 </p>
-<p>Met vriendelijke groeten,</p>
-<p>Lieke<br>
-Blokje Om</p>
+<p>
+  Met vriendelijke groeten,
+</p>
+<p>
+  Lieke en Loes<br>
+  Blokje Om
+</p>
 <img src="cid:logo.png" width="100px" height="54px" />
 </body>
 </html>

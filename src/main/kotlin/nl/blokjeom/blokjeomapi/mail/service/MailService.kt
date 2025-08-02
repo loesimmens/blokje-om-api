@@ -38,7 +38,7 @@ class MailService(
         templateModel: MutableMap<String, Any>,
         image: Resource
     ) {
-        logger.info { "Sending Thymeleaf template email to: $to" }
+        logger.debug { "Sending Thymeleaf template email to: $to" }
 
         val thymeleafContext = Context()
         thymeleafContext.setVariables(templateModel)
