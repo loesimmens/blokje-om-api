@@ -22,6 +22,7 @@ springBootStarter = { group = "org.springframework.boot", name = "spring-boot-st
 springBootStarterDataJpa = { group = "org.springframework.boot", name="spring-boot-starter-data-jpa", version.ref = "springBoot" }
 springBootStarterMail = { group = "org.springframework.boot", name = "spring-boot-starter-mail", version.ref = "springBoot" }
 springBootStarterTest = { group = "org.springframework.boot", name = "spring-boot-starter-test", version.ref = "springBoot" }
+springBootStarterThymeleaf = { group = "org.springframework.boot", name = "spring-boot-starter-thymeleaf", version.ref="springBoot" }
 springBootStarterWeb = { group = "org.springframework.boot", name = "spring-boot-starter-web", version.ref = "springBoot" }
 kotlinLogging = { group = "io.github.oshai", name = "kotlin-logging-jvm", version.ref = "kotlinLogging" }
 kotlinReflect = { group = "org.jetbrains.kotlin", name="kotlin-reflect", version.ref = "kotlin" }

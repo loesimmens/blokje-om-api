@@ -8,6 +8,11 @@ lego:
   rebrickable-api:
     key: '23e0c0d68b3e7f3024665532b8b3a76c'
 
+mail:
+  templates-folder: mail-templates/
+  client-mail-template-file-name: client-email
+  logo-path: classpath:mail-templates/logo.png
+
 logging:
   level:
     nl:
