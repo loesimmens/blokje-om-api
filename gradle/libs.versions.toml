@@ -1,0 +1,49 @@
+[versions]
+flyway = "11.8.2"
+gradleWrapperUpgrade = "0.12"
+jackson = "2.18.3"
+junitPlatform = "1.12.0"
+kotlin = "2.1.21"
+kotlinLogging = "7.0.3"
+mockk = "1.13.14"
+postgresql = "42.7.5"
+sonarqube = "6.0.1.5171"
+spotless = "7.0.2"
+springBoot = "3.5.4"
+springDependencyManagement = "1.1.7"
+testcontainers = "1.20.5"
+
+[libraries]
+flyway = { group = "org.flywaydb", name = "flyway-database-postgresql", version.ref = "flyway" }
+h2 = { group = "com.h2database", name = "h2" }
+jacksonDataFormatXML = { group = "com.fasterxml.jackson.dataformat", name = "jackson-dataformat-xml", version.ref = "jackson" }
+jacksonKotlinModule = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version.ref = "jackson" }
+springBootStarter = { group = "org.springframework.boot", name = "spring-boot-starter", version.ref = "springBoot" }
+springBootStarterDataJpa = { group = "org.springframework.boot", name="spring-boot-starter-data-jpa", version.ref = "springBoot" }
+springBootStarterDockerCompose = { group = "org.springframework.boot", name = "spring-boot-docker-compose", version.ref = "springBoot" }
+springBootStarterMail = { group = "org.springframework.boot", name = "spring-boot-starter-mail", version.ref = "springBoot" }
+springBootStarterTest = { group = "org.springframework.boot", name = "spring-boot-starter-test", version.ref = "springBoot" }
+springBootStarterThymeleaf = { group = "org.springframework.boot", name = "spring-boot-starter-thymeleaf", version.ref="springBoot" }
+springBootStarterWeb = { group = "org.springframework.boot", name = "spring-boot-starter-web", version.ref = "springBoot" }
+kotlinLogging = { group = "io.github.oshai", name = "kotlin-logging-jvm", version.ref = "kotlinLogging" }
+kotlinReflect = { group = "org.jetbrains.kotlin", name="kotlin-reflect", version.ref = "kotlin" }
+postgresql = { group = "org.postgresql", name = "postgresql", version.ref = "postgresql" }
+kotlinTestJunit5 = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit5", version.ref = "kotlin" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+springBootTestcontainers = { group = "org.springframework.boot", name = "spring-boot-testcontainers" }
+testcontainersJUnit = { group = "org.testcontainers", name = "junit-jupiter" }
+testcontainersPostgresql = { group = "org.testcontainers", name = "postgresql", version.ref = "testcontainers" }
+junitPlatformLauncher = { group = "org.junit.platform", name = "junit-platform-launcher", version.ref = "junitPlatform" }
+
+[plugins]
+gradleWrapperUpgrade = { id = "org.gradle.wrapper-upgrade", version.ref = "gradleWrapperUpgrade" }
+jacoco = { id = "jacoco" }
+jacocoReportAggregation = { id = "jacoco-report-aggregation" }
+jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
+kotlinJpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+sonarqube = { id = "org.sonarqube", version.ref = "sonarqube" }
+spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+springBoot = { id = "org.springframework.boot", version.ref = "springBoot" }
+springDependencyManagement = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }

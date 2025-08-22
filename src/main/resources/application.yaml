@@ -1,0 +1,50 @@
+spring:
+  mail:
+    host: mail.antagonist.nl
+    port: 587
+    username: info@blokje-om.nl
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+lego:
+  set-info:
+    "31058-1": 100
+    "31140-1": 100
+    "31145-1": 100
+    "40725-1": 100
+    "60362-1": 200
+    "11028-1": 200
+    "31144-1": 200
+    "31136-1": 200
+    "31093-1": 200
+    "71431-1": 300
+    "43210-1": 300
+    "31165-1": 400
+    "60420-1": 400
+    "31139-1": 400
+    "31150-1": 400
+    "40573-1": 400
+    "10331-1": 400
+    "10329-1": 400
+    "43202-1": 500
+    "60419-1": 700
+    "21329-1": 700
+    "76989-1": 700
+
+  rebrickable-api:
+    url: https://rebrickable.com/api/v3/lego/sets
+
+boardgames:
+  board-game-geek-api:
+    url: https://boardgamegeek.com/xmlapi/boardgame
+  game-info:
+    "18803": 150
+    "26054": 150
+    "129465": 150
+
+mail:
+  blokje-om-email: info@blokje-om.nl

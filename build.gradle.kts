@@ -1,8 +1,9 @@
 plugins {
-	kotlin("jvm") version "1.9.25"
-	kotlin("plugin.spring") version "1.9.25"
-	id("org.springframework.boot") version "3.4.4"
-	id("io.spring.dependency-management") version "1.1.7"
+	alias(libs.plugins.kotlinJvm)
+	alias(libs.plugins.spring)
+	alias(libs.plugins.springBoot)
+	alias(libs.plugins.springDependencyManagement)
+	alias(libs.plugins.jpa)
 }
 
 group = "nl.blokje-om"
@@ -10,7 +11,7 @@ version = "0.0.1-SNAPSHOT"
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(17)
+		languageVersion = JavaLanguageVersion.of(21)
 	}
 }
 
@@ -19,11 +20,24 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	implementation(libs.kotlinReflect)
+	implementation(libs.kotlinLogging)
+	implementation(libs.springBootStarter)
+	implementation(libs.springBootStarterDataJpa)
+	implementation(libs.springBootStarterWeb)
+	implementation(libs.springBootStarterMail)
+	implementation(libs.springBootStarterThymeleaf)
+	implementation(libs.jacksonKotlinModule)
+	implementation(libs.jacksonDataFormatXML)
+	implementation(libs.postgresql)
+	implementation(libs.flyway)
+	implementation(libs.h2)
+    implementation(libs.springBootStarterDockerCompose)
+
+	testImplementation(libs.springBootStarterTest)
+	testImplementation(libs.kotlinTestJunit5)
+	testImplementation(libs.mockk)
+	testRuntimeOnly(libs.junitPlatformLauncher)
 }
 
 kotlin {

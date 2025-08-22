@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/blokje_om_api
+    username: postgres
+    password: 1234
+
+lego:
+  rebrickable-api:
+    key: '23e0c0d68b3e7f3024665532b8b3a76c'
+
+mail:
+  templates-folder: mail-templates/
+  client-mail-template-file-name: client-email
+  blokje-om-mail-template-file-name: blokje-om-email
+  logo-path: classpath:mail-templates/logo.png
+
+logging:
+  level:
+    nl:
+      blokjeom: debug
+    org.springframework.mail: debug
