@@ -75,14 +75,14 @@ class OrderServiceTest {
                 CLIENT_EMAIL_ADDRESS,
                 BEDANKT,
                 CLIENT_MAIL_TEMPLATE_FILE_NAME,
-                mailTemplateModel,
+                any(),
                 LOGO_PATH
             )
             mailService.sendMessageUsingThymeleafTemplate(
                 BLOKJE_OM_EMAIL_ADDRESS,
                 "Besteld: product ${order.productId}, door ${order.client.firstName} ${order.client.middleName} ${order.client.lastName}",
                 BLOKJE_OM_MAIL_TEMPLATE_FILE_NAME,
-                mailTemplateModel,
+                any(),
                 LOGO_PATH
             )
         }
