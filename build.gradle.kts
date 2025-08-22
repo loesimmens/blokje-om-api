@@ -49,3 +49,18 @@ kotlin {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+version = System.getenv("GITHUB_REF_NAME")?.replace("/", "-")?.lowercase() ?: "develop"
+
+tasks.withType<org.springframework.boot.gradle.tasks.bundling.BootBuildImage> {
+    imageName.set("ghcr.io/loesimmens/blokje-om-api:${version}")
+    if (project.hasProperty("publishImage")) {
+        publish.set(true)
+        docker {
+            publishRegistry {
+                username.set(System.getenv("GITHUB_ACTOR"))
+                password.set(System.getenv("GITHUB_TOKEN"))
+            }
+        }
+    }
+}

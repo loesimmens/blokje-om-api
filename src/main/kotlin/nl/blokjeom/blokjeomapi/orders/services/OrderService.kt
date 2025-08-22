@@ -95,11 +95,7 @@ class OrderService(
     }
 
     private fun getStreetLine(street: String, number: String, numberAddition: String?): String {
-        val numberAddition = if (numberAddition != null) {
-            "$numberAddition"
-        } else {
-            ""
-        }
+        val numberAddition = numberAddition ?: ""
         return "$street $number$numberAddition"
     }
 
@@ -116,7 +112,7 @@ class OrderService(
     }
 
     private fun formatInstant(instant: Instant): String{
-        val locale = Locale.Builder().setLanguageTag("nl").build()
+        val locale = Locale.forLanguageTag("nl-NL")
         val formatter = DateTimeFormatter.ofPattern(PATTERN_FORMAT).withLocale(locale)
             .withZone(ZoneId.systemDefault())
         return formatter.format(instant)

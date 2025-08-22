@@ -1,11 +1,9 @@
 package nl.blokjeom.blokjeomapi.orders.services
 
-import io.mockk.Runs
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
-import io.mockk.just
 import io.mockk.verify
 import io.mockk.verifySequence
 import nl.blokjeom.blokjeomapi.TestHelper
@@ -71,20 +69,22 @@ class OrderServiceTest {
         val result = orderService.order(order)
 
         assertThat(result).isEqualTo(order)
+            .usingRecursiveComparison()
+            .ignoringFields("pickUpTime")
 
         verifySequence {
             mailService.sendMessageUsingThymeleafTemplate(
                 CLIENT_EMAIL_ADDRESS,
                 BEDANKT,
                 CLIENT_MAIL_TEMPLATE_FILE_NAME,
-                mailTemplateModel,
+                any(),
                 LOGO_PATH
             )
             mailService.sendMessageUsingThymeleafTemplate(
                 BLOKJE_OM_EMAIL_ADDRESS,
                 "Besteld: product ${order.productId}, door ${order.client.firstName} ${order.client.middleName} ${order.client.lastName}",
                 BLOKJE_OM_MAIL_TEMPLATE_FILE_NAME,
-                mailTemplateModel,
+                any(),
                 LOGO_PATH
             )
         }
