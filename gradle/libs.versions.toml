@@ -20,6 +20,7 @@ jacksonDataFormatXML = { group = "com.fasterxml.jackson.dataformat", name = "jac
 jacksonKotlinModule = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version.ref = "jackson" }
 springBootStarter = { group = "org.springframework.boot", name = "spring-boot-starter", version.ref = "springBoot" }
 springBootStarterDataJpa = { group = "org.springframework.boot", name="spring-boot-starter-data-jpa", version.ref = "springBoot" }
+springBootStarterDockerCompose = { group = "org.springframework.boot", name = "spring-boot-docker-compose", version.ref = "springBoot" }
 springBootStarterMail = { group = "org.springframework.boot", name = "spring-boot-starter-mail", version.ref = "springBoot" }
 springBootStarterTest = { group = "org.springframework.boot", name = "spring-boot-starter-test", version.ref = "springBoot" }
 springBootStarterThymeleaf = { group = "org.springframework.boot", name = "spring-boot-starter-thymeleaf", version.ref="springBoot" }

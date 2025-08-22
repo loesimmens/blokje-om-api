@@ -19,7 +19,7 @@ fun RBLegoSet.toLegoSet(setInfo: Map<String, Int>) =
         imageUrl = this.set_img_url,
         rentalPricePerWeek = setInfo[this.set_num]!!,
         buildTogether = false,
-        available = false,
+        available = true,
         description = ""
     )
 

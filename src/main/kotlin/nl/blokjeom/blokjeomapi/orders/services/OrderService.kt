@@ -29,11 +29,13 @@ class OrderService(
     val logger = KotlinLogging.logger {}
     companion object {
         const val PATTERN_FORMAT: String = "EEEE d MMMM yyyy H:mm"
+        const val BEDANKT = "Bedankt voor je bestelling bij Blokje Om"
     }
 
     @Transactional
     fun order(productOrder: ProductOrder): ProductOrder {
         logger.debug { "Sending order confirmations for product: ${productOrder.id}" }
+
         sendEmailToClient(productOrder)
         sendEmailToBlokjeOm(productOrder)
 
@@ -45,7 +47,7 @@ class OrderService(
     private fun sendEmailToClient(productOrder: ProductOrder) =
         mailService.sendMessageUsingThymeleafTemplate(
             productOrder.client.emailAddress,
-            "Bedankt voor je bestelling bij Blokje Om",
+            BEDANKT,
             mailConfigurationProperties.clientMailTemplateFileName,
             mailTemplateModel(productOrder, getClientNameFromOrder(productOrder)),
             mailConfigurationProperties.logoPath
@@ -66,21 +68,21 @@ class OrderService(
         val product = getProductFromOrder(productOrder)
         val clientStreetLine = getStreetLine(productOrder.client.street, productOrder.client.number, productOrder.client.numberAddition)
 
-        val mailTemplateModel = mutableMapOf<String, Any>()
-        mailTemplateModel.put("clientFirstName", productOrder.client.firstName)
-        mailTemplateModel.put("clientName", clientName)
-        mailTemplateModel.put("clientStreetLine", clientStreetLine)
-        mailTemplateModel.put("clientPostalCode", productOrder.client.postalCode)
-        mailTemplateModel.put("clientTown", productOrder.client.town)
-        mailTemplateModel.put("clientEmailAddress", productOrder.client.emailAddress)
-        mailTemplateModel.put("clientPhoneNumber", productOrder.client.phoneNumber)
-        mailTemplateModel.put("productName", product.name)
-        mailTemplateModel.put("productId", product.id)
-        mailTemplateModel.put("startDate", formatInstant(productOrder.pickUpTime.startTime))
-        mailTemplateModel.put("endDate", formatInstant(productOrder.pickUpTime.endTime))
-        mailTemplateModel.put("price", product.rentalPricePerWeek / 100)
-        mailTemplateModel.put("productImage", product.imageUrl)
-        return mailTemplateModel
+        return mutableMapOf<String, Any>().apply {
+            this["clientFirstName"] = productOrder.client.firstName
+            this["clientName"] = clientName
+            this["clientStreetLine"] = clientStreetLine
+            this["clientPostalCode"] = productOrder.client.postalCode
+            this["clientTown"] = productOrder.client.town
+            this["clientEmailAddress"] = productOrder.client.emailAddress
+            this["clientPhoneNumber"] = productOrder.client.phoneNumber
+            this["productName"] = product.name
+            this["productId"] = product.id
+            this["startDate"] = formatInstant(productOrder.pickUpTime.startTime)
+            this["endDate"] = formatInstant(productOrder.pickUpTime.endTime)
+            this["price"] = product.rentalPricePerWeek / 100
+            this["productImage"] = product.imageUrl
+        }
     }
 
     private fun getClientNameFromOrder(productOrder: ProductOrder): String {
@@ -94,7 +96,7 @@ class OrderService(
 
     private fun getStreetLine(street: String, number: String, numberAddition: String?): String {
         val numberAddition = if (numberAddition != null) {
-            " $numberAddition"
+            "$numberAddition"
         } else {
             ""
         }
