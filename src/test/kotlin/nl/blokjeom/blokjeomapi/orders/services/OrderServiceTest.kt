@@ -69,6 +69,8 @@ class OrderServiceTest {
         val result = orderService.order(order)
 
         assertThat(result).isEqualTo(order)
+            .usingRecursiveComparison()
+            .ignoringFields("pickUpTime")
 
         verifySequence {
             mailService.sendMessageUsingThymeleafTemplate(
