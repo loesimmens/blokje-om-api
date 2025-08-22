@@ -53,7 +53,7 @@ tasks.withType<Test> {
 version = System.getenv("GITHUB_REF_NAME")?.replace("/", "-")?.lowercase() ?: "develop"
 
 tasks.withType<org.springframework.boot.gradle.tasks.bundling.BootBuildImage> {
-    imageName.set("todo:${version}")
+    imageName.set("ghcr.io/loesimmens/blokje-om-api:${version}")
     if (project.hasProperty("publishImage")) {
         publish.set(true)
         docker {

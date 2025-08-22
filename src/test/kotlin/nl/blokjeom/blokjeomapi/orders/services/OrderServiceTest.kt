@@ -1,11 +1,9 @@
 package nl.blokjeom.blokjeomapi.orders.services
 
-import io.mockk.Runs
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
-import io.mockk.just
 import io.mockk.verify
 import io.mockk.verifySequence
 import nl.blokjeom.blokjeomapi.TestHelper
