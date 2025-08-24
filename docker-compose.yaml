@@ -1,11 +1,40 @@
-version: '1'
+secrets:
+  email_password:
+    external: true
+  postgres_password:
+    external: true
+
 services:
+  blokje-om-api:
+    image: ghcr.io/blokje-om/blokje-om-api:latest
+    deploy:
+      restart_policy:
+        condition: on-failure
+    secrets:
+      - email_password
+      - postgres_password
+    environment:
+      - EMAIL_PASSWORD_FILE=/run/secrets/email_password
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
   postgres:
-    image: postgres:17-alpine
+    image: postgres:latest
+    deploy:
+      restart_policy:
+        condition: on-failure
+    secrets:
+      - postgres_password
+    environment:
+        - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
+        - POSTGRES_DB=blokje_om_api
     ports:
       - "5432:5432"
     volumes:
       - ./init/:/docker-entrypoint-initdb.d/
-    environment:
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_USER: postgres
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
