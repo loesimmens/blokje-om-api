@@ -8,7 +8,7 @@ secrets:
 
 services:
   blokje-om-api:
-    image: ghcr.io/blokje-om/blokje-om-api:latest
+    image: ghcr.io/loesimmens/blokje-om-api:main
     deploy:
       restart_policy:
         condition: on-failure
