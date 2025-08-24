@@ -33,8 +33,6 @@ dependencies {
 	implementation(libs.flyway)
 	implementation(libs.h2)
 
-    developmentOnly(libs.springBootStarterDockerCompose)
-
 	testImplementation(libs.springBootStarterTest)
 	testImplementation(libs.kotlinTestJunit5)
 	testImplementation(libs.mockk)

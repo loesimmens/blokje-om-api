@@ -3,6 +3,8 @@ secrets:
     external: true
   postgres_password:
     external: true
+  rebrickable_api_key:
+    external: true
 
 services:
   blokje-om-api:
@@ -13,9 +15,11 @@ services:
     secrets:
       - email_password
       - postgres_password
+      - rebrickable_api_key
     environment:
-      - EMAIL_PASSWORD_FILE=/run/secrets/email_password
-      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
+      - EMAIL_PASSWORD=/run/secrets/email_password
+      - POSTGRES_PASSWORD=/run/secrets/postgres_password
+      - REBRICKABLE_API_KEY=/run/secrets/rebrickable_api_key
     ports:
       - "8080:8080"
     depends_on:
@@ -28,8 +32,8 @@ services:
     secrets:
       - postgres_password
     environment:
-        - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
-        - POSTGRES_DB=blokje_om_api
+      - POSTGRES_PASSWORD=/run/secrets/postgres_password
+      - POSTGRES_DB=blokje_om_api
     ports:
       - "5432:5432"
     volumes:
