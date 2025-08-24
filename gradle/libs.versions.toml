@@ -9,7 +9,7 @@ mockk = "1.13.14"
 postgresql = "42.7.5"
 sonarqube = "6.0.1.5171"
 spotless = "7.0.2"
-springBoot = "3.5.4"
+springBoot = "3.5.5"
 springDependencyManagement = "1.1.7"
 testcontainers = "1.20.5"
 
@@ -20,7 +20,6 @@ jacksonDataFormatXML = { group = "com.fasterxml.jackson.dataformat", name = "jac
 jacksonKotlinModule = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version.ref = "jackson" }
 springBootStarter = { group = "org.springframework.boot", name = "spring-boot-starter", version.ref = "springBoot" }
 springBootStarterDataJpa = { group = "org.springframework.boot", name="spring-boot-starter-data-jpa", version.ref = "springBoot" }
-springBootStarterDockerCompose = { group = "org.springframework.boot", name = "spring-boot-docker-compose", version.ref = "springBoot" }
 springBootStarterMail = { group = "org.springframework.boot", name = "spring-boot-starter-mail", version.ref = "springBoot" }
 springBootStarterTest = { group = "org.springframework.boot", name = "spring-boot-starter-test", version.ref = "springBoot" }
 springBootStarterThymeleaf = { group = "org.springframework.boot", name = "spring-boot-starter-thymeleaf", version.ref="springBoot" }
