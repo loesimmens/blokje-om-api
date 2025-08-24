@@ -32,7 +32,8 @@ dependencies {
 	implementation(libs.postgresql)
 	implementation(libs.flyway)
 	implementation(libs.h2)
-    implementation(libs.springBootStarterDockerCompose)
+
+    developmentOnly(libs.springBootStarterDockerCompose)
 
 	testImplementation(libs.springBootStarterTest)
 	testImplementation(libs.kotlinTestJunit5)
