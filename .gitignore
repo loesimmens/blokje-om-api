@@ -5,6 +5,7 @@ build/
 !**/src/test/**/build/
 dev.env
 docker-compose-dev.yaml
+src/main/resources/secrets/
 
 ### STS ###
 .apt_generated
