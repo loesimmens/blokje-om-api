@@ -1,10 +1,9 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/blokje_om_api
-    username: postgres
-
 logging:
   level:
     nl:
       blokjeom: debug
     org.springframework.mail: debug
+
+database:
+  url: "jdbc:postgresql://localhost:5432/blokje_om_api"
+  username: "postgres"

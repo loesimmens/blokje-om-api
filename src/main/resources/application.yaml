@@ -54,3 +54,7 @@ mail:
   client-mail-template-file-name: client-email
   blokje-om-mail-template-file-name: blokje-om-email
   logo-path: classpath:mail-templates/logo.png
+
+database:
+  url: "jdbc:postgresql://localhost:5432/blokje_om_api"
+  username: "bo_admin"

@@ -10,11 +10,10 @@ import javax.sql.DataSource
 @Configuration
 class DatabaseConfig {
     @Bean
-    fun getDataSource(): DataSource {
+    fun getDataSource(databaseConfigurationProperties: DatabaseConfigurationProperties): DataSource {
         val dataSourceBuilder = DataSourceBuilder.create()
-        dataSourceBuilder.driverClassName("org.h2.Driver")
-        dataSourceBuilder.url("jdbc:h2:mem:test")
-        dataSourceBuilder.username("bo_admin")
+        dataSourceBuilder.url(databaseConfigurationProperties.url)
+        dataSourceBuilder.username(databaseConfigurationProperties.username)
         dataSourceBuilder.password(EnvironmentHelper.getSecretFromFileInEnvVariable(Environment("POSTGRES_PASSWORD_FILE")))
         return dataSourceBuilder.build()
     }
