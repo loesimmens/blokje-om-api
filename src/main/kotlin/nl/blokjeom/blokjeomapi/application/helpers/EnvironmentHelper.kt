@@ -9,7 +9,15 @@ object EnvironmentHelper {
             val path = environment.getVariable()
             return ResourceUtils.getFile(path).readText().trim()
         } catch (e: Exception) {
-            throw BlokjeOmException("Failed to read database password from file", e)
+            throw BlokjeOmException("Failed to read secret from file", e)
+        }
+    }
+
+    fun getSecretFromPath(path: String): String {
+        try {
+            return ResourceUtils.getFile(path).readText().trim()
+        } catch (e: Exception) {
+            throw BlokjeOmException("Failed to read secret from file", e)
         }
     }
 }

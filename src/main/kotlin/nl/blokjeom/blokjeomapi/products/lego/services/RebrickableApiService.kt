@@ -1,6 +1,7 @@
 package nl.blokjeom.blokjeomapi.products.lego.services
 
 import io.github.oshai.kotlinlogging.KotlinLogging
+import nl.blokjeom.blokjeomapi.application.helpers.EnvironmentHelper
 import nl.blokjeom.blokjeomapi.products.lego.config.LegoConfigurationProperties
 import nl.blokjeom.blokjeomapi.products.lego.dto.RBLegoSet
 import org.springframework.http.HttpEntity
@@ -22,7 +23,9 @@ class RebrickableApiService(
 
     fun getOneSet(setId: String): RBLegoSet? {
         logger.debug { "Getting lego set $setId" }
-        val key = legoConfigurationProperties.rebrickableApi.key
+        val key = EnvironmentHelper.getSecretFromPath(
+            legoConfigurationProperties.rebrickableApi.key
+        )
         val headers = HttpHeaders().apply { set(HttpHeaders.AUTHORIZATION, "key $key") }
         val request = HttpEntity<RBLegoSet>(headers)
         val url = "${legoConfigurationProperties.rebrickableApi.url}/$setId"
