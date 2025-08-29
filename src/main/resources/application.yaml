@@ -1,20 +1,3 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/blokje_om_api
-    username: bo_admin
-    password: ${POSTGRES_PASSWORD}
-  mail:
-    host: mail.antagonist.nl
-    port: 587
-    username: info@blokje-om.nl
-    password: ${EMAIL_PASSWORD}
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-
 lego:
   set-info:
     "31058-1": 100
@@ -42,7 +25,7 @@ lego:
 
   rebrickable-api:
     url: https://rebrickable.com/api/v3/lego/sets
-    key: ${REBRICKABLE_API_KEY}
+    key: ${REBRICKABLE_API_KEY_FILE}
 
 boardgames:
   board-game-geek-api:
@@ -58,3 +41,7 @@ mail:
   client-mail-template-file-name: client-email
   blokje-om-mail-template-file-name: blokje-om-email
   logo-path: classpath:mail-templates/logo.png
+
+database:
+  url: "jdbc:postgresql://localhost:5432/blokje_om_api"
+  username: "bo_admin"
