@@ -1,5 +1,6 @@
 package nl.blokjeom.blokjeomapi.mail.config
 
+import nl.blokjeom.blokjeomapi.application.helpers.Environment
 import nl.blokjeom.blokjeomapi.application.helpers.EnvironmentHelper
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean
@@ -20,7 +21,7 @@ class MailConfiguration(
         mailSender.host = "mail.antagonist.nl"
         mailSender.port = 587
         mailSender.username = "info@blokje-om.nl"
-        mailSender.password = EnvironmentHelper.getSecretFromFileInEnvVariable("EMAIL_PASSWORD_FILE")
+        mailSender.password = EnvironmentHelper.getSecretFromFileInEnvVariable(Environment("EMAIL_PASSWORD_FILE"))
 
         val mailProperties = mailSender.javaMailProperties
         mailProperties["mail.smtp.auth"] = "true"

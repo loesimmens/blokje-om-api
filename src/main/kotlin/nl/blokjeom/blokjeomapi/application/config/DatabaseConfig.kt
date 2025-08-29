@@ -1,5 +1,6 @@
 package nl.blokjeom.blokjeomapi.application.config
 
+import nl.blokjeom.blokjeomapi.application.helpers.Environment
 import nl.blokjeom.blokjeomapi.application.helpers.EnvironmentHelper
 import org.springframework.boot.jdbc.DataSourceBuilder
 import org.springframework.context.annotation.Bean
@@ -13,7 +14,7 @@ class DatabaseConfig {
         val dataSourceBuilder = DataSourceBuilder.create()
         dataSourceBuilder.url(databaseConfigurationProperties.url)
         dataSourceBuilder.username(databaseConfigurationProperties.username)
-        dataSourceBuilder.password(EnvironmentHelper.getSecretFromFileInEnvVariable("POSTGRES_PASSWORD_FILE"))
+        dataSourceBuilder.password(EnvironmentHelper.getSecretFromFileInEnvVariable(Environment("POSTGRES_PASSWORD_FILE")))
         return dataSourceBuilder.build()
     }
 }
