@@ -4,7 +4,8 @@ import nl.blokjeom.blokjeomapi.application.exceptions.BlokjeOmException
 import org.springframework.util.ResourceUtils
 
 object EnvironmentHelper {
-    fun getSecretFromFileInEnvVariable(environment: Environment): String {
+    fun getSecretFromFileInEnvVariable(environmentVariable: String): String {
+        val environment = Environment(environmentVariable)
         try {
             val path = environment.getVariable()
             return ResourceUtils.getFile(path).readText().trim()

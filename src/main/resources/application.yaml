@@ -1,16 +1,3 @@
-spring:
-  mail:
-    host: mail.antagonist.nl
-    port: 587
-    username: info@blokje-om.nl
-    password: ${EMAIL_PASSWORD_FILE}
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-
 lego:
   set-info:
     "31058-1": 100
