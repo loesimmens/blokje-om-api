@@ -36,6 +36,7 @@ services:
     secrets:
       - postgres_password
     environment:
+      - POSTGRES_USER=bo_admin
       - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
       - POSTGRES_DB=blokje_om_api
     ports:
