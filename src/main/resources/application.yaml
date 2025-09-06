@@ -43,5 +43,5 @@ mail:
   logo-path: classpath:mail-templates/logo.png
 
 database:
-  url: "jdbc:postgresql://localhost:5432/blokje_om_api"
+  url: "jdbc:postgresql://${DB_HOST}:5432/blokje_om_api"
   username: "bo_admin"
