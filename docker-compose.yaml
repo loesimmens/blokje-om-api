@@ -28,8 +28,11 @@ services:
       - "8080:8080"
     depends_on:
       - postgres
+    volumes:
+      - ./tomcat/conf/:/opt/tomcat/conf/
+      - ./tomcat/keystore/:/usr/share/
   postgres:
-    image: postgres:latest
+    image: postgres:17.6
     deploy:
       restart_policy:
         condition: on-failure
