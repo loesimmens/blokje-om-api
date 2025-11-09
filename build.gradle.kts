@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "nl.blokje-om"
-version = "0.0.1-SNAPSHOT"
+version = System.getenv("GITHUB_REF_NAME")?.replace("/", "-")?.lowercase() ?: "develop"
 
 java {
 	toolchain {
@@ -51,15 +51,4 @@ tasks.withType<Test> {
 
 version = System.getenv("GITHUB_REF_NAME")?.replace("/", "-")?.lowercase() ?: "develop"
 
-tasks.withType<org.springframework.boot.gradle.tasks.bundling.BootBuildImage> {
-    imageName.set("ghcr.io/loesimmens/blokje-om-api:${version}")
-    if (project.hasProperty("publishImage")) {
-        publish.set(true)
-        docker {
-            publishRegistry {
-                username.set(System.getenv("GITHUB_ACTOR"))
-                password.set(System.getenv("GITHUB_TOKEN"))
-            }
-        }
-    }
-}
+tasks.named<Jar>("bootJar") { archiveFileName.set("blokje-om-api.jar") }

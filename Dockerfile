@@ -1,7 +1,9 @@
-FROM ubuntu-latest
+FROM alpine/java:21-jre
+
 EXPOSE 8080:8080
-RUN mkdir /app
+
 WORKDIR /app
-RUN .gradlew installDist --stacktrace
-WORKDIR /app/build/install/app
-CMD ["./blokje-om-api"]
+
+COPY build/libs/blokje-om-api.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
