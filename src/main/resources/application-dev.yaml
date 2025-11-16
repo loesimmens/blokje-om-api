@@ -1,3 +1,7 @@
+server:
+  ssl:
+    key-store: tomcat/keystore/keystore.p12
+
 logging:
   level:
     nl:

@@ -1,3 +1,11 @@
+server:
+  port: 8443
+  ssl:
+    key-store: /usr/share/keystore.p12
+    key-store-password: RCTschommelschip
+    keyStoreType: PKCS12
+    keyAlias: tomcat
+
 lego:
   set-info:
     "31058-1": 100
