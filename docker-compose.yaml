@@ -33,7 +33,6 @@ services:
     depends_on:
       - postgres
     volumes:
-      - ./tomcat/conf/:/opt/tomcat/conf/
       - ./tomcat/keystore/:/usr/share/
   postgres:
     image: postgres:17.6

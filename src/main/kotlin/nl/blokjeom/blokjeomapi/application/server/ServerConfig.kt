@@ -12,7 +12,7 @@ class ServerConfig {
     fun getServerProperties(): ServerProperties {
         val serverProperties = ServerProperties()
         serverProperties.port = 443
-        serverProperties.ssl.keyStore = "tomcat/keystore/keystore.p12"
+        serverProperties.ssl.keyStore = "/usr/share/keystore.p12"
         serverProperties.ssl.keyStorePassword = EnvironmentHelper.getSecretFromFileInEnvVariable(Environment("KEYSTORE_PASSWORD_FILE"))
         serverProperties.ssl.keyStoreType = "PKCS12"
         serverProperties.ssl.keyAlias = "tomcat"
