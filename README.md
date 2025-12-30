@@ -40,5 +40,3 @@ API for the Blokje Om web app.
    ```bash
    docker volume rm bo_db-data
    ```
-
-

@@ -5,7 +5,7 @@ import org.springframework.util.ResourceUtils
 
 object EnvironmentHelper {
     fun getSecretFromFileInEnvVariable(environment: Environment): String {
-try {
+        try {
             val path = environment.getVariable()
             return ResourceUtils.getFile(path).readText().trim()
         } catch (e: Exception) {

@@ -11,12 +11,17 @@ import javax.sql.DataSource
 @Configuration
 class DatabaseConfig {
     private val logger = KotlinLogging.logger {  }
+
     @Bean
-    fun getDataSource(databaseConfigurationProperties: DatabaseConfigurationProperties): DataSource {
+    fun getDataSource(properties: DatabaseConfigurationProperties): DataSource {
+        val host = EnvironmentHelper.getSecretFromFileInEnvVariable(Environment("DB_HOST_FILE"))
+        val url = "jdbc:postgresql://$host:${properties.port}/${properties.name}"
+
+        logger.debug { "Configuring DataSource with URL: $url and username: ${properties.username}" }
+
         val dataSourceBuilder = DataSourceBuilder.create()
-        logger.debug { "Configuring DataSource with URL: ${databaseConfigurationProperties.url} and Username: ${databaseConfigurationProperties.username}" }
-        dataSourceBuilder.url(databaseConfigurationProperties.url)
-        dataSourceBuilder.username(databaseConfigurationProperties.username)
+        dataSourceBuilder.url(url)
+        dataSourceBuilder.username(properties.username)
         dataSourceBuilder.password(EnvironmentHelper.getSecretFromFileInEnvVariable(Environment("POSTGRES_PASSWORD_FILE")))
         return dataSourceBuilder.build()
     }
