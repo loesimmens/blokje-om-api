@@ -10,19 +10,33 @@ API for the Blokje Om web app.
    ```bash
    cd blokje-om-api
    ```
-3. Run the docker stack:
+3. Install docker:
+   https://docs.docker.com/engine/install/ubuntu/
+4. Install docker swarm:
+   ```bash
+   docker swarm init --advertise-addr <your-server-ip>
+   ```
+5. Create docker secrets:
+   ```bash
+   docker secret create email_password -
+   docker secret create db_host - #server-ip
+   docker secret create postgres_password -
+   docker secret create rebrickable_api_key -
+   docker secret create keystore_password -
+   ```
+6. Run the docker stack:
    ```bash
    docker stack deploy -c docker-compose.yaml bo
    ```
-4. If a container is not starting, check the logs with:
+7. If a container is not starting, check the logs with:
    ```bash
    docker stack ps --no-trunc bo 
    ```   
-5. Stop the docker stack:
+8. Stop the docker stack:
    ```bash
    docker stack rm bo
    ```
-6. Remove the database volume **(this will empty the database!)**: 
+9. Remove the database volume **(this will empty the database!)**: 
    ```bash
    docker volume rm bo_db-data
    ```
