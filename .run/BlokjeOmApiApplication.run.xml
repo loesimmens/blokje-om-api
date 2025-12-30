@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="BlokjeOmApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <option name="ACTIVE_PROFILES" value="dev" />
+    <envs>
+      <env name="EMAIL_PASSWORD_FILE" value="classpath:dev-env/email_password" />
+      <env name="POSTGRES_PASSWORD_FILE" value="classpath:dev-env/postgres_password" />
+      <env name="DB_HOST" value="localhost" />
+    </envs>
+    <module name="blokje-om-api.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="nl.blokjeom.blokjeomapi.BlokjeOmApiApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
