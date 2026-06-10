@@ -1,5 +1,5 @@
 # Blokje Om API
-API for the Blokje Om web app.
+API for the Blokje Om web app. Used with the Blokje Om frontend.
 
 ## Running on a server
 1. Clone the repository:
